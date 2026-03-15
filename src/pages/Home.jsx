@@ -11,6 +11,21 @@ export default function Home() {
   const [gradient, setGradient] = useState(
     "radial-gradient(circle at 30% 40%, #FFB86C, #FF6A00, #FF3C00)"
   );
+  const { scrollY } = useScroll();
+const [hidden, setHidden] = useState(false);
+
+useEffect(() => {
+  let lastY = 0;
+
+  return scrollY.on("change", (y) => {
+    if (y > lastY && y > 80) {
+      setHidden(true); // scrolling down
+    } else {
+      setHidden(false); // scrolling up
+    }
+    lastY = y;
+  });
+}, [scrollY]);
 
   const juices = [
     {
@@ -83,7 +98,7 @@ export default function Home() {
         <FlavorSection key={index} juice={juice} setGradient={setGradient} />
       ))}
 
-      <style jsx>{`
+      <style>{`
         @keyframes liquidMove {
           0% { background-position: 0% 50%; }
           25% { background-position: 100% 50%; }
