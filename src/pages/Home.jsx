@@ -67,9 +67,11 @@ useEffect(() => {
   ];
 
   return (
-<div className="relative h-screen overflow-y-auto scroll-smooth snap-y snap-proximity font-poppins no-scrollbar">      <motion.div
+<div className="relative min-h-screen overflow-x-hidden overflow-y-auto snap-y snap-proximity font-poppins no-scrollbar">    <motion.div
         className="fixed inset-0 -z-20"
         animate={{ background: gradient }}
+        whileInView={{ opacity: 1, x: 0 }}
+viewport={{ once: true }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
         style={{
           backgroundSize: "300% 300%",
@@ -128,6 +130,7 @@ className="min-h-[100svh] snap-start flex items-center justify-center px-6 md:px
         <motion.div
           initial={{ opacity: 0, x: -120 }}
           whileInView={{ opacity: 1, x: 0 }}
+viewport={{ once: true }}
           transition={{ duration: 1 }}
           className="space-y-8"
         >
@@ -161,23 +164,23 @@ className="min-h-[100svh] snap-start flex items-center justify-center px-6 md:px
         <motion.div
           initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+viewport={{ once: true }}
           transition={{ duration: 1 }}
           className="flex justify-center relative order-first md:order-none"
         >
-          <div className="absolute w-[600px] h-[600px] bg-white/20 blur-[80px] md:blur-[140px] rounded-full z-0"></div>
-
-          <motion.img
-            src={juice.image}
-            alt={juice.name}
-            className="relative w-64 md:w-[440px] z-20"
+<div className="absolute w-[260px] md:w-[600px] h-[260px] md:h-[600px] bg-white/15 blur-[60px] md:blur-[140px] rounded-full z-0"></div>
+<motion.img
+  src={juice.image}
+  alt={juice.name}
+  className="relative w-64 md:w-[440px] z-20 will-change-transform"
             animate={{
-            y: [-12, 12],
-rotate: [-2, 2],
-scale: [1, 1.02],
+            y: [-8, 8],
+rotate: [-1.5, 1.5],
+scale: [1, 1.01],
             }}
             transition={{
               y: {
-                duration: 4,
+                duration: 6,
                 repeat: Infinity,
                 repeatType: "mirror",
                 ease: "easeInOut",
@@ -195,9 +198,10 @@ scale: [1, 1.02],
                 ease: "easeInOut",
               },
             }}
-            style={{
-              filter: "drop-shadow(0 50px 80px rgba(0,0,0,0.45))",
-            }}
+style={{
+  filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.35))",
+  transform: "translateZ(0)"
+}}
           />
         </motion.div>
 
@@ -205,6 +209,7 @@ scale: [1, 1.02],
         <motion.div
           initial={{ opacity: 0, x: 120 }}
           whileInView={{ opacity: 1, x: 0 }}
+viewport={{ once: true }}
           transition={{ duration: 1 }}
           className="space-y-6 text-right hidden md:block"
         >
@@ -235,6 +240,7 @@ scale: [1, 1.02],
 <motion.h2
   initial={{ opacity: 0, scale: 0.95 }}
   whileInView={{ opacity: 0.30, scale: 1 }}
+viewport={{ once: true }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   className="absolute text-[80px] sm:text-[120px] md:text-[240px] font-extrabold tracking-[0.18em] uppercase pointer-events-none select-none"
   style={{
