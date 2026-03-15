@@ -52,8 +52,7 @@ export default function Home() {
   ];
 
   return (
-<div className="relative h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory font-poppins no-scrollbar">      {/* LIQUID MORPH BACKGROUND */}
-      <motion.div
+<div className="relative h-screen overflow-y-auto scroll-smooth snap-y snap-mandatory font-poppins no-scrollbar">      <motion.div
         className="fixed inset-0 -z-20"
         animate={{ background: gradient }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -64,10 +63,9 @@ export default function Home() {
       />
 
       {/* Header */}
-<header className="fixed top-0 left-0 w-full flex justify-between items-center px-16 py-6 z-20">
-  <img src={logo} alt="Logo" className="h-16 object-contain" />
-
-  <nav className="hidden md:flex gap-12 text-sm font-semibold tracking-wider text-white">
+<header className="fixed top-0 left-0 w-full flex justify-between items-center px-16 py-6 z-20"> 
+   <img src={logo} alt="Logo" className="h-12 md:h-16 object-contain" />
+<nav className="hidden md:flex gap-8 md:gap-12 text-sm font-semibold tracking-wider text-white">
     <a href="#" className="hover:opacity-70 transition">
       Home
     </a>
@@ -109,9 +107,8 @@ function FlavorSection({ juice, setGradient }) {
   return (
     <section
       ref={ref}
-className="min-h-screen snap-start flex items-center justify-center px-12 text-white relative overflow-hidden"
-    >
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 items-center gap-20 relative z-10">
+className="min-h-screen snap-start flex items-center justify-center px-6 md:px-12 text-white relative overflow-hidden"    >
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 items-center gap-10 md:gap-20 relative z-10 text-center md:text-left">
         {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, x: -120 }}
@@ -119,7 +116,7 @@ className="min-h-screen snap-start flex items-center justify-center px-12 text-w
           transition={{ duration: 1 }}
           className="space-y-8"
         >
-          <h1 className="text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             {juice.name}
           </h1>
 
@@ -130,7 +127,7 @@ className="min-h-screen snap-start flex items-center justify-center px-12 text-w
           <motion.button
   whileTap={{ scale: 0.97 }}
   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-  className="relative px-14 py-4 rounded-full 
+  className="relative px-10 md:px-14 py-3 md:py-4 rounded-full
              bg-white/10 
              border border-white/30 
              text-white 
@@ -150,14 +147,14 @@ className="min-h-screen snap-start flex items-center justify-center px-12 text-w
           initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
           whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1 }}
-          className="flex justify-center relative"
+          className="flex justify-center relative order-first md:order-none"
         >
           <div className="absolute w-[600px] h-[600px] bg-white/20 blur-[140px] rounded-full z-0"></div>
 
           <motion.img
             src={juice.image}
             alt={juice.name}
-            className="relative w-80 md:w-[440px] z-20"
+            className="relative w-64 md:w-[440px] z-20"
             animate={{
               y: [-20, 20],
               rotate: [-3, 3],
@@ -194,7 +191,7 @@ className="min-h-screen snap-start flex items-center justify-center px-12 text-w
           initial={{ opacity: 0, x: 120 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="space-y-8 text-right hidden md:block"
+          className="space-y-6 text-right hidden md:block"
         >
           <div>
             <h3 className="font-semibold text-lg">100% Natural</h3>
@@ -224,7 +221,7 @@ className="min-h-screen snap-start flex items-center justify-center px-12 text-w
   initial={{ opacity: 0, scale: 0.95 }}
   whileInView={{ opacity: 0.30, scale: 1 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
-  className="absolute text-[160px] md:text-[240px] font-extrabold tracking-[0.18em] uppercase pointer-events-none select-none"
+  className="absolute text-[80px] sm:text-[120px] md:text-[240px] font-extrabold tracking-[0.18em] uppercase pointer-events-none select-none"
   style={{
     WebkitTextStroke: "2px rgba(255,255,255,1)",
     color: "transparent",
