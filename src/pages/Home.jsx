@@ -52,7 +52,7 @@ export default function Home() {
   ];
 
   return (
-<div className="relative h-screen overflow-y-auto scroll-smooth snap-y snap-mandatory font-poppins no-scrollbar">      <motion.div
+<div className="relative h-screen overflow-y-auto scroll-smooth snap-y snap-proximity font-poppins no-scrollbar">      <motion.div
         className="fixed inset-0 -z-20"
         animate={{ background: gradient }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -107,7 +107,7 @@ function FlavorSection({ juice, setGradient }) {
   return (
     <section
       ref={ref}
-className="min-h-screen snap-start flex items-center justify-center px-6 md:px-12 text-white relative overflow-hidden"    >
+className="min-h-[100svh] snap-start flex items-center justify-center px-6 md:px-12 text-white relative overflow-hidden"    >
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 items-center gap-10 md:gap-20 relative z-10 text-center md:text-left">
         {/* LEFT */}
         <motion.div
@@ -149,16 +149,16 @@ className="min-h-screen snap-start flex items-center justify-center px-6 md:px-1
           transition={{ duration: 1 }}
           className="flex justify-center relative order-first md:order-none"
         >
-          <div className="absolute w-[600px] h-[600px] bg-white/20 blur-[140px] rounded-full z-0"></div>
+          <div className="absolute w-[600px] h-[600px] bg-white/20 blur-[80px] md:blur-[140px] rounded-full z-0"></div>
 
           <motion.img
             src={juice.image}
             alt={juice.name}
             className="relative w-64 md:w-[440px] z-20"
             animate={{
-              y: [-20, 20],
-              rotate: [-3, 3],
-              scale: [1, 1.04],
+            y: [-12, 12],
+rotate: [-2, 2],
+scale: [1, 1.02],
             }}
             transition={{
               y: {
